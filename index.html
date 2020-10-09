@@ -61,16 +61,16 @@
     </div> <!--Div do painel de vida-->
 
     <div class="panel result" v-if="hasResult">
-      <div class="win" v-if="roboLife == 0">
-        <img src="images/NinjaVenceu.gif"/>
+      <div v-if="roboLife == 0">
+        <img src="images/NinjaVenceu.gif" class="img-res"/>
       </div>
-      <div class="lose" v-else>
-        <img src="images/roboVenceu.gif"/>
+      <div v-else>
+        <img src="images/roboVenceu.gif" class="img-res"/>
       </div>
     </div> <!--Div do painel de resultado-->
 
     <div class="panel buttons">
-      <template v-if="running">
+      <template v-if="running" class="template-btns">
 
         <button class="btn attack"
           @click="attack(false)">Ataque</button>

@@ -27,7 +27,7 @@ new Vue({
       }
     },
     hurt(prop, min, max, special, source, target, cls) {
-      const plus = special  ? 5 : 0
+      const plus = special  ? 1 : 0
       const hurt = this.getRandom(min + plus, max + plus)
       this[prop] = Math.max(this[prop] - hurt, 0)
       this.registerLog(`${source} atacou o ${target} com ${hurt}.`, cls)

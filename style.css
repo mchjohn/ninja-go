@@ -63,27 +63,32 @@ html {
   font-weight: 600;
 }
 
-.result .win {
-  color: #2fc236;
-  transform: rotate(10deg);
-}
-
-.result .lose {
-  color: #FF0000;
-  transform: rotate(10deg);
+.img-res {
+  width: 100%;
+  rotate: 10deg;
 }
 
 /* Área dos Botões (controle do Jogo) */
 .buttons {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
 }
 
 .btn {
+  margin: 10px;
   border: none;
   cursor: pointer;
   padding: 5px 10px;
-  margin: 0 10px;
   border-radius: 5px;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -91,7 +96,7 @@ html {
 
 .btn:active {
   transition: all 2s;
-  transform: rotate(360deg);
+  transform: translateY(30px);
 }
 
 .start-game {
