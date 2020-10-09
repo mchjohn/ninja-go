@@ -12,6 +12,6 @@ _Stack utilizada: HTML5, CSS3, VueJs_
 Você pode conferir o site [clicando aqui](https://mchjohn.github.io/ninja-go/)
 
 ### Imagem Demonstrativa
-  <img src="https://github.com/mchjohn/devario/blob/master/screenshots/Screenshot_1.png" />
+  <img src="https://github.com/mchjohn/ninja-go/blob/master/screenshots/Screenshot_1.png" />
   
-  <img src="https://github.com/mchjohn/devario/blob/master/screenshots/Screenshot_2.png" />
+  <img src="https://github.com/mchjohn/ninja-go/blob/master/screenshots/Screenshot_2.png" />
