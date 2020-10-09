@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
+  <title>Ninja Go</title>
+  <style>
+    .none {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="panel scores">
+       
+      <!-- animação do ninja -->
+      <div class="score">
+        <img src="images/black-ninja-attack-001.png" alt="" class="none">
+        <img src="images/black-ninja-attack-002.png" alt="" class="none">
+        <img src="images/black-ninja-attack-003.png" alt="" class="none">
+        <img src="images/black-ninja-attack-004.png" alt="" class="none">
+        <img src="images/black-ninja-attack-005.png" alt="" class="none">
+        <img src="images/black-ninja-attack-006.png" alt="" class="none">
+        <img src="images/black-ninja-attack-007.png" alt="" class="none">
+
+        <img id="animateNinja" src="" alt="">
+
+        <!--Div do painel de vida do Ninja-->
+        <div class="life-bar">
+          <div class="life"
+            :class="{danger: ninjaLife < 20}"
+            :style="{width: ninjaLife + '%'}"></div>
+        </div>
+        <div class="percent">{{ ninjaLife }}%</div>
+      </div>
+
+       <!-- Div do painel de vida do Robô -->
+      <div class="score">
+        
+         <!-- animação do robô -->
+        <img src="images/robo-1.png" alt="" class="none">
+        <img src="images/robo-2.png" alt="" class="none">
+        <img src="images/robo-3.png" alt="" class="none">
+        <img src="images/robo-4.png" alt="" class="none">
+        <img src="images/robo-5.png" alt="" class="none">
+        <img src="images/robo-6.png" alt="" class="none">
+
+        <img id="animateRobo" src="" alt="">
+
+        <div class="life-bar">
+          <div class="life"
+          :class="{danger: roboLife < 20}"
+          :style="{width: roboLife + '%'}"></div>
+        </div>
+        <div class="percent">{{ roboLife }}%</div>
+      </div>
+    </div> <!--Div do painel de vida-->
+
+    <div class="panel result" v-if="hasResult">
+      <div class="win" v-if="roboLife == 0">
+        <img src="images/NinjaVenceu.gif"/>
+      </div>
+      <div class="lose" v-else>
+        <img src="images/roboVenceu.gif"/>
+      </div>
+    </div> <!--Div do painel de resultado-->
+
+    <div class="panel buttons">
+      <template v-if="running">
+
+        <button class="btn attack"
+          @click="attack(false)">Ataque</button>
+
+        <button class="btn special-attack"
+          @click="attack(true)">Ataque Special</button>
+
+        <button class="btn heal"
+          @click="healAndHurt">Recuper Vida</button>
+        
+        <button class="btn give-up"
+          @click="running = false">Desistir</button>
+
+      </template>
+
+      <button class="btn start-game"
+        v-else @click="startGame">Novo Jogo</button>
+    </div> <!--Div do painel de comandos-->
+
+    <div class="panel logs"
+      v-if="logs.length">
+      <ul>
+        <li class="log" v-for="log in logs" :class="log.cls">{{ log.text }}</li>
+      </ul>
+    </div> <!--Div do painel de logs-->
+  </div>
+  
+  <script src="app.js"></script>
+  <script src="ninja.js"></script>
+  <script src="robo.js"></script>
+  <script src="ninjaDown.js"></script>
+</body>
+</html>
